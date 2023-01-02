@@ -2,7 +2,7 @@
 
 Dear students,
 
-Please download the data by clicking on the green "< > Code" button, and then "Download ZIP". Once the .zip file is downloaded, you will find the data in the "Data" folder. Select the year (2012, 2015, 2018) and level (Student, Teacher, School) you would like, and the data will be in the "Countries" folder.
+Please download the data by clicking on the green "< > Code" button, and then "Download ZIP". Once the .zip file is downloaded, you will find the data in the "Data" folder. Select the year (2012, 2015, 2018) and level (Student, Teacher, School) you would like, and the data (.csv) will be in the "Countries" folder.
 
 Note: 2015 has an additional student survey about bullying incase you want to also merge these questions.
 
