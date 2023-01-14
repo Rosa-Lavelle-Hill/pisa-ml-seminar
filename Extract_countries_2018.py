@@ -12,14 +12,15 @@ from tqdm import tqdm
 #              }
 
 
-# Extract Germany:
-target_countries = ["DEU"]
+# Extract Germany and Ireland:
+target_countries = ["DEU", "IRL"]
 
 data_type_list = ["School", "Teachers", "Students"]
 for data_type in data_type_list:
     print("\nParsing 2018 {} data...".format(data_type))
     batches_path = "Data/2018/{}/Batches/".format(data_type)
-    data_dict = {'DEU': []}
+    data_dict = {'DEU': [],
+                 'IRL': []}
 
     for file in tqdm(os.listdir(batches_path)):
         filename = os.fsdecode(file)
@@ -43,6 +44,7 @@ for data_type in data_type_list:
                 continue
 
     DEU_df = pd.DataFrame(data_dict['DEU'])
+    IRL_df = pd.DataFrame(data_dict['IRL'])
 
     # remove any duplicates and na rows:
     print(DEU_df.shape)
@@ -50,9 +52,15 @@ for data_type in data_type_list:
     DEU_df.dropna(axis=0, how="all", inplace=True)
     print(DEU_df.shape)
 
+    print(IRL_df.shape)
+    IRL_df.drop_duplicates(inplace=True)
+    IRL_df.dropna(axis=0, how="all", inplace=True)
+    print(IRL_df.shape)
+
     # save to .csv
     countries_path = "Data/2018/{}/Countries/".format(data_type)
-    DEU_df.to_csv(countries_path+"DEU.csv")
+    DEU_df.to_csv(countries_path + "DEU.csv")
+    IRL_df.to_csv(countries_path + "IRL.csv")
 
 
 print('done')
